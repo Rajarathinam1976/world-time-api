@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:request-config>
 	<flow name="world-time-apiFlow" doc:id="c7e952b7-d843-4990-a804-5bc4c6736547" >
 		<http:listener doc:name="Listener" doc:id="f591c0f0-add7-479f-9679-4f7efb82698a" config-ref="HTTP_Listener_config" path="/{region}/{city}"/>
-		<http:request method="GET" doc:name="Request" doc:id="8fe0e8db-e7cb-4eba-8533-7a25ea789758" config-ref="HTTP_Request_configuration" path="/{region}/{city}">
+		<http:request method="GET" doc:name="Request" doc:id="8fe0e8db-e7cb-4eba-8533-7a25ea789758" config-ref="HTTP_Request_configuration" path="/{region}/{city}" target="worldTimeApiResponse">
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {
@@ -20,5 +20,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	region : attributes.uriParams.region
 }]]]></http:uri-params>
 		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="5f592b2d-abe3-4400-b6c4-1d4ab9c1e3fc" message="#[vars.worldTimeApiResponse]"/>
 	</flow>
 </mule>
