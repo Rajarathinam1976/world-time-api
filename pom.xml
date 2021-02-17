@@ -31,6 +31,15 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				<cloudHubDeployment>
+				<username>mailsoori</username>
+				<password>Packers2020$</password>
+				<environment>Sandbox</environment>
+				<workers>1</workers>
+				<workerType>Micro</workerType>
+				<applicationName>world-time-api</applicationName>
+				<muleVersion>4.3.0</muleVersion>
+				</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
